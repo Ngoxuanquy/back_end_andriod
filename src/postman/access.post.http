@@ -1,0 +1,32 @@
+@url_dev = http://localhost:3056/v1/api
+
+POST {{url_dev}}/shop/signup
+Content-Type: application/json 
+x-api-key: 05738c217178993291bd2ef5516f51520de8405e56ab27379e6c750af5bb3e3c61250bef7daf07ce8530ef56a14003291f6d5bc1a3d20c289cde9dfd64c83c01
+
+{
+    "name": "abc",
+    "email": "cuong1@gmail.com",
+    "password": "123"
+}
+
+###
+
+POST {{url_dev}}/shop/login
+Content-Type: application/json
+x-api-key: 7e62ced24b8f30277602cdd2b1df03c7236c3e5df9a81d52f00368f9e6e16bcc4a77d537826e43242c4c6875233346e98caebd994566319c505f39cd13381690
+
+{
+    "email": "cuong@gmail.com",
+    "password": "123"
+}
+
+###
+
+POST {{url_dev}}/shop/logout
+Content-Type: application/json
+x-api-key: 7e62ced24b8f30277602cdd2b1df03c7236c3e5df9a81d52f00368f9e6e16bcc4a77d537826e43242c4c6875233346e98caebd994566319c505f39cd13381690
+x-client-id: 6419277499ba5446034cae8d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDE5Mjc3NDk5YmE1NDQ2MDM0Y2FlOGQiLCJlbWFpbCI6ImN1b25nQGdtYWlsLmNvbSIsImlhdCI6MTY3OTUzNzM3NywiZXhwIjoxNjc5NzEwMTc3fQ.g2Fo-0jB6eIV39xj6ccUP6nVmvYwO2Puq0u18G3cO3M
+
+

@@ -18,25 +18,18 @@ class AccessService {
     static handleRefreshTokenV2 = async ({ user, keyStore, refreshToken }) => {
         const { userId, email } = user
 
-        console.log(user)
-
         if (keyStore.refreshTokensUsed.includes(refreshToken)) {
             await KeyTokenService.deleteKeyById(userId)
             throw new ForbiddenError('Something wrong happend !! Pls relogin')
         }
 
-        if (keyStore.refreshToken !== refreshToken)
-            throw new AuthFailureError('Shop not register 1')
+        if (keyStore.refreshToken !== refreshToken) throw new AuthFailureError('Shop not register 1')
 
         const foundShop = await findByEmail({ email })
 
         if (!foundShop) throw new AuthFailureError('Shop not register 2')
 
-        const tokens = await createTokenPair(
-            { userId: foundShop._id, email },
-            keyStore.publicKey,
-            keyStore.privateKey
-        )
+        const tokens = await createTokenPair({ userId: foundShop._id, email }, keyStore.publicKey, keyStore.privateKey)
 
         await keyStore.update({
             $set: {
@@ -100,33 +93,38 @@ class AccessService {
     }
 
     static login = async ({ email, password, refreshToken = null }) => {
-        const foundShop = await findByEmail({ email })
+        try {
+            const foundShop = await findByEmail({ email })
 
-        if (!foundShop) throw new BadRequestError('Shop not registered')
+            if (!foundShop) throw new BadRequestError('Shop not registered')
 
-        const match = bcrypt.compare(password, foundShop.password)
+            const match = await bcrypt.compare(password, foundShop.password)
 
-        if (!match) throw new AuthFailureError('Authentication error')
+            if (!match) throw new AuthFailureError('Authentication error')
 
-        const privateKey = crypto.randomBytes(64).toString('hex')
-        const publicKey = crypto.randomBytes(64).toString('hex')
+            const privateKey = crypto.randomBytes(64).toString('hex')
+            const publicKey = crypto.randomBytes(64).toString('hex')
 
-        const tokens = await createTokenPair(
-            { userId: foundShop._id, email },
-            publicKey,
-            privateKey
-        )
+            const tokens = await createTokenPair({ userId: foundShop._id, email }, publicKey, privateKey)
 
-        await KeyTokenService.createKeyToken({
-            userId: foundShop._id,
-            refreshToken: tokens.refreshToken,
-            publicKey,
-            privateKey,
-        })
+            await KeyTokenService.createKeyToken({
+                userId: foundShop._id,
+                refreshToken: tokens.refreshToken,
+                publicKey,
+                privateKey,
+            })
 
-        return {
-            shop: getInfoData(['_id', 'name', 'email'], foundShop),
-            tokens,
+            return {
+                shop: getInfoData(['_id', 'name', 'email'], foundShop),
+                tokens,
+                status: 'ok',
+            }
+        } catch (error) {
+            return {
+                code: 'xxx',
+                msg: error.message,
+                status: 'error',
+            }
         }
     }
 

@@ -40,19 +40,21 @@ const searchProductByUser = async ({ keySearch }) => {
 const findAllProducts = async ({ limit, sort, page, filter, select }) => {
     const skip = (page - 1) * limit
     const sortBy = sort === 'ctime' ? { _id: -1 } : { id: 1 }
-    const products = product
-        .find(filter)
-        .sort(sortBy)
-        .skip(skip)
-        .limit(limit)
-        .select(getSelectData(select))
-        .lean()
+    const products = product.find(filter).sort(sortBy).skip(skip).limit(limit).select(getSelectData(select)).lean()
 
     return products
 }
 
 const findProduct = async ({ product_id, unSelect }) => {
     return product.findById(product_id).select(unGetSelectData(unSelect))
+}
+
+const updateProductById = async ({ productId, bodyUpdate, model, isNew = true }) => {
+    console.log({ bodyUpdate })
+
+    return await model.findByIdAndUpdate(productId, bodyUpdate, {
+        new: isNew,
+    })
 }
 
 const publishProductByShop = async ({ product_shop, product_id }) => {
@@ -95,4 +97,5 @@ module.exports = {
     searchProductByUser,
     findAllProducts,
     findProduct,
+    updateProductById,
 }

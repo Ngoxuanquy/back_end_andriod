@@ -17,7 +17,7 @@ Content-Type: application/json
 x-api-key: 7e62ced24b8f30277602cdd2b1df03c7236c3e5df9a81d52f00368f9e6e16bcc4a77d537826e43242c4c6875233346e98caebd994566319c505f39cd13381690
 
 {
-    "email": "cuong@gmail.com",
+    "email": "cuong@gmail.com1",
     "password": "123"
 }
 

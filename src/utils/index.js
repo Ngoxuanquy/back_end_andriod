@@ -1,4 +1,7 @@
 const lodash = require('lodash')
+const { Types } = require('mongoose')
+
+const convertToObjectIdMongodb = (id) => Types.ObjectId(id)
 
 const getInfoData = (fileds, object) => {
     return lodash.pick(object, fileds)
@@ -36,4 +39,11 @@ const updateNestedObjectParser = (obj) => {
     return final
 }
 
-module.exports = { getInfoData, getSelectData, unGetSelectData, removeUndefinedObject, updateNestedObjectParser }
+module.exports = {
+    getInfoData,
+    getSelectData,
+    unGetSelectData,
+    removeUndefinedObject,
+    updateNestedObjectParser,
+    convertToObjectIdMongodb,
+}

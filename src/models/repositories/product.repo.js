@@ -50,8 +50,6 @@ const findProduct = async ({ product_id, unSelect }) => {
 }
 
 const updateProductById = async ({ productId, bodyUpdate, model, isNew = true }) => {
-    console.log({ bodyUpdate })
-
     return await model.findByIdAndUpdate(productId, bodyUpdate, {
         new: isNew,
     })

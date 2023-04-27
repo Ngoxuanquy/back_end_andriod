@@ -1,12 +1,1 @@
-const fun = (timeout) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve('okee')
-        }, timeout)
-    })
-}
-
-;(async function () {
-    let a = await fun(2000)
-    console.log(a)
-})()
+console.log(new Date() < new Date('2023-04-27T01:34:12.946Z'))

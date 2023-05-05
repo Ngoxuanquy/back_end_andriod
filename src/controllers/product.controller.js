@@ -1,6 +1,6 @@
 const { SuccessResponse } = require('../core/success.response')
 // const ProductService = require('../services/product.service')
-const ProductServiceV2 = require('../services/product.service.hightlv')
+const ProductServiceV2 = require('../services/product.hightlv.service')
 
 class ProductController {
     createProduct = async (req, res, next) => {
@@ -14,8 +14,6 @@ class ProductController {
     }
 
     updateProduct = async (req, res, next) => {
-        console.log(req.params.productId)
-
         new SuccessResponse({
             message: 'Update product success',
             metadata: await ProductServiceV2.updateProduct(req.body.product_type, req.params.productId, {

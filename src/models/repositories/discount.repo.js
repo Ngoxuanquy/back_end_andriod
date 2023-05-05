@@ -1,16 +1,20 @@
-const { convertToObjectIdMongodb, getSelectData, unGetSelectData } = require('../../utils')
+const { getSelectData, unGetSelectData } = require('../../utils')
 const discountModel = require('../discount.model')
 
-const findDiscount = async ({ code, shopId }) => {
-    return await discountModel
-        .findOne({
-            discount_code: code,
-            discount_shopId: convertToObjectIdMongodb(shopId),
-        })
-        .lean()
+const checkDiscountExists = async ({ model, filter }) => {
+    return await model.findOne(filter).lean()
 }
 
-const updateDiscountById = async (discountId) => {}
+const updateDiscountById = async ({ discountId, bodyUpdate, isNew = true }) => {
+    console.log({
+        discountId,
+        bodyUpdate,
+    })
+
+    return await discountModel.findOneAndUpdate(discountId, bodyUpdate, {
+        new: isNew,
+    })
+}
 
 const findAllDiscountCodeSelect = async ({ limit = 50, page = 1, sort = 'ctime', filter, select, model }) => {
     const skip = (page - 1) * limit
@@ -28,4 +32,4 @@ const findAllDiscountCodeUnSelect = async ({ limit = 50, page = 1, sort = 'ctime
     return documents
 }
 
-module.exports = { findDiscount, findAllDiscountCodeUnSelect, findAllDiscountCodeSelect }
+module.exports = { checkDiscountExists, findAllDiscountCodeUnSelect, findAllDiscountCodeSelect, updateDiscountById }

@@ -5,12 +5,16 @@ const DiscountController = require('../../controllers/discount.controller')
 
 const router = express.Router()
 
+router.get('/getAllProductWithDiscountCode', asyncHandler(DiscountController.getAllProductWithDiscountCode))
+router.post('/amount', asyncHandler(DiscountController.getDiscountAmount))
+
 // authentication
 
 router.use(authenticationV2)
 
 router.get('/getAllDiscountCodesByShop', asyncHandler(DiscountController.getAllDiscountCodesByShop))
-router.get('/getAllProductWithDiscountCode', asyncHandler(DiscountController.getAllProductWithDiscountCode))
-router.post('/create', asyncHandler(DiscountController.createDiscount))
+
+router.post('/', asyncHandler(DiscountController.createDiscount))
+router.patch('/:discountId', asyncHandler(DiscountController.updateDiscountCode))
 
 module.exports = router

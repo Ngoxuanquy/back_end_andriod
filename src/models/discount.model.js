@@ -17,7 +17,7 @@ var discountSchema = new Schema(
             required: true,
         },
         // kiểu giảm giá (% or số tiền)
-        discoun_type: {
+        discount_type: {
             type: String,
             default: 'fixed_amount', // or percentage
         },
@@ -32,12 +32,12 @@ var discountSchema = new Schema(
             required: true,
         },
         // ngày bắt đầu
-        discount_start_day: {
+        discount_start_date: {
             type: Date,
             required: true,
         },
         // ngày kết thúc
-        discount_end_day: {
+        discount_end_date: {
             type: Date,
             required: true,
         },
@@ -49,7 +49,7 @@ var discountSchema = new Schema(
         // số mã giảm giá đã sử dụng
         discount_uses_count: {
             type: Number,
-            required: true,
+            default: 0,
         },
         // những người đã dùng mã giảm giá
         discount_users_used: {

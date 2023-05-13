@@ -6,11 +6,6 @@ const checkDiscountExists = async ({ model, filter }) => {
 }
 
 const updateDiscountById = async ({ discountId, bodyUpdate, isNew = true }) => {
-    console.log({
-        discountId,
-        bodyUpdate,
-    })
-
     return await discountModel.findOneAndUpdate(discountId, bodyUpdate, {
         new: isNew,
     })

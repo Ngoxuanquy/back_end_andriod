@@ -13,7 +13,6 @@ const HEADER = {
 const createTokenPair = async (payload, publicKey, privateKey) => {
     try {
         // accessToken
-        console.log(Math.floor(Date.now() / 1000))
         const accessToken = await JWT.sign(payload, publicKey, {
             expiresIn: '2 days',
         })
@@ -22,11 +21,7 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
             expiresIn: '7 days',
         })
 
-        const decode = await JWT.verify(accessToken, publicKey)
-
-        console.log(decode.exp - Math.floor(Date.now() / 1000))
-
-        return { accessToken, refreshToken, timeExpiresIn: decode.exp, now: Math.floor(Date.now() / 1000) }
+        return { accessToken, refreshToken }
     } catch (error) {}
 }
 

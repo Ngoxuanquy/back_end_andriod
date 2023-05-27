@@ -10,6 +10,9 @@ const {
     findAllProducts,
     findProduct,
     updateProductById,
+    getProductById,
+    getProductAll,
+    deleteProductById
 } = require('../models/repositories/product.repo')
 const { removeUndefinedObject, updateNestedObjectParser } = require('../utils')
 
@@ -22,7 +25,12 @@ class ProductFactory {
     }
 
     static async createProduct(type, payload) {
+
+        console.log(payload)
+
         const productClass = ProductFactory.productRegistry[type]
+
+        console.log({ productClass })
         if (!productClass) throw new BadRequestError(`Invalid product type ${type}`)
         return new productClass(payload).createProduct()
     }
@@ -30,7 +38,7 @@ class ProductFactory {
     // end create
 
     static async updateProduct(type, productId, payload) {
-        const productClass = ProductFactory.productRegistry[type]
+        // const productClass = ProductFactory.productRegistry[type]
         if (!productClass) throw new BadRequestError(`Invalid product type ${type}`)
         return new productClass(payload).updateProduct(productId)
     }
@@ -84,6 +92,21 @@ class ProductFactory {
     }
 
     // end put
+
+
+    //get
+    static async getproductById({ product_id }) {
+        return await getProductById(product_id)
+    }
+
+    static async getproductAll() {
+        return await getProductAll()
+    }
+
+    //delete
+    static async dateleproductById(product_id) {
+        return await deleteProductById(product_id)
+    }
 }
 
 class Product {
@@ -108,6 +131,9 @@ class Product {
     }
 
     async createProduct(product_id) {
+
+        console.log(this)
+
         const newProduct = await product.create({ ...this, _id: product_id })
 
         if (newProduct) {
@@ -183,7 +209,6 @@ class Electronics extends Product {
         }
 
         const updateProduct = await super.updateProduct(productId, updateNestedObjectParser(objectParams))
-
         return updateProduct
     }
 }

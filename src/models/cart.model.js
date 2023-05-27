@@ -23,7 +23,11 @@ const cartSchema = new Schema(
         },
 
         cart_userId: {
-            type: Number,
+            type: String,
+            required: true,
+        },
+        cart_ShopId: {
+            type: String,
             required: true,
         },
     },

@@ -4,6 +4,8 @@ const ProductServiceV2 = require('../services/product.hightlv.service')
 
 class ProductController {
     createProduct = async (req, res, next) => {
+
+        console.log(req.body)
         new SuccessResponse({
             message: 'Create new product success',
             metadata: await ProductServiceV2.createProduct(req.body.product_type, {
@@ -97,6 +99,37 @@ class ProductController {
     }
 
     // END PUT
+
+    //GET
+    getproductById = async (req, res, next) => {
+
+        console.log(req.params.id)
+
+        new SuccessResponse({
+            message: 'publicProductByShop success',
+            metadata: await ProductServiceV2.getproductById({
+                product_id: req.params.id,
+            }),
+        }).send(res)
+    }
+
+    getproductAll = async (req, res, next) => {
+
+        console.log(req.params.id)
+
+        new SuccessResponse({
+            message: 'publicProductByShop success',
+            metadata: await ProductServiceV2.getproductAll(),
+        }).send(res)
+    }
+
+    deleteproductAll = async (req, res, next) => {
+
+        new SuccessResponse({
+            message: 'publicProductByShop success',
+            metadata: await ProductServiceV2.dateleproductById(req.params),
+        }).send(res)
+    }
 }
 
 module.exports = new ProductController()

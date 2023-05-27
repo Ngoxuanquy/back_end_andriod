@@ -22,7 +22,7 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
         })
 
         return { accessToken, refreshToken }
-    } catch (error) {}
+    } catch (error) { }
 }
 
 // const authentication = asyncHandler(async (req, res, next) => {
@@ -48,6 +48,9 @@ const createTokenPair = async (payload, publicKey, privateKey) => {
 
 const authenticationV2 = asyncHandler(async (req, res, next) => {
     const userId = req.headers[HEADER.CLIENT_ID]
+
+    console.log(userId)
+
     if (!userId) throw new AuthFailureError('Invalid Request')
 
     const keyStore = await findByUserId(userId)

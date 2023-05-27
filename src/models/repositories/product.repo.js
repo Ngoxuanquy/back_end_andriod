@@ -50,7 +50,30 @@ const findProduct = async ({ product_id, unSelect = ['__v'] }) => {
 }
 
 const getProductById = async (productId) => {
+
+    console.log(productId)
+
     return await product.findOne({ _id: convertToObjectIdMongodb(productId) }).lean()
+}
+
+const deleteProductById = async (productId) => {
+
+    console.log(productId.productId)
+    // return await product.deleteOne({ _id: convertToObjectIdMongodb(productId) }).lean()
+    try {
+        const result = await product.deleteOne({ _id: productId.productId }).lean()
+        console.log(result); // Optional: Print the result to the console
+        return result;
+    } catch (error) {
+        console.error(error);
+        // Handle the error accordingly
+    }
+}
+
+
+const getProductAll = async (productId) => {
+
+    return await product.findMany().lean()
 }
 
 const updateProductById = async ({ productId, bodyUpdate, model, isNew = true }) => {
@@ -60,6 +83,7 @@ const updateProductById = async ({ productId, bodyUpdate, model, isNew = true })
 }
 
 const publishProductByShop = async ({ product_shop, product_id }) => {
+
     const foundShop = await product.findOne({
         product_shop: new Types.ObjectId(product_shop),
         _id: new Types.ObjectId(product_id),
@@ -101,4 +125,6 @@ module.exports = {
     findProduct,
     updateProductById,
     getProductById,
+    getProductAll,
+    deleteProductById
 }

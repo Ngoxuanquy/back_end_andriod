@@ -33,6 +33,7 @@ class AccessController {
 
     login = async (req, res, next) => {
         new SuccessResponse({
+            message: 'Success',
             metadata: await AccessService.login(req.body),
         }).send(res)
     }

@@ -42,6 +42,9 @@ class Product {
 
 class Clothing extends Product {
     async createProduct() {
+
+        console.log(this)
+
         const newClothing = await clothing.create({
             ...this.product_attributes,
             product_shop: this.product_shop,

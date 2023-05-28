@@ -120,6 +120,39 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZm
 
 
 ###
+post {{url_dev}}/transaction
+Content-Type: application/json
+x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
+x-client-id: 645f78f0ff400061f37e430d
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwNzI0ODcsImV4cCI6MTY4NTI0NTI4N30.ZTVjO1czM7Cu9YMJN15ESeliDS0PeKo3gVuCPmaFZR8
+
+{
+       "user": {
+        "userId": "645f77c72b38802e12f7b580",
+        "name": "test",
+        
+       },
+       "shopId": "645f78f0ff400061f37e430d",
+        "product" : {
+        "productId": "646f535f5caeac0dd7587b17",
+        "product_name": "test101",
+        "product_thumb": "123a", 
+        "product_description": "aa",
+        "product_price": 600,
+        "product_type": "Electronics",
+        "product_attributes": {
+            "manufacturer": "quy",
+            "size": "L",
+            "color": "Denim"
+        },
+        "quantity": 1
+
+    }
+}
+
+
+
+###
 DELETE {{url_dev}}/cart
 Content-Type: application/json
 x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b

@@ -103,7 +103,7 @@ class ProductController {
     //GET
     getproductById = async (req, res, next) => {
 
-        console.log(req.params.id)
+        console.log({ id: req.params.id })
 
         new SuccessResponse({
             message: 'publicProductByShop success',

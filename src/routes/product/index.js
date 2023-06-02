@@ -10,6 +10,7 @@ router.get('/', asyncHandler(productController.findAllProducts))
 router.get('/:product_id', asyncHandler(productController.findProduct))
 
 router.get('/getAll', asyncHandler(productController.getproductAll))
+router.get('/byId/:id', asyncHandler(productController.getproductById))
 
 
 // authentication
@@ -28,7 +29,6 @@ router.post('/publish/:id', asyncHandler(productController.publicProductByShop))
 router.post('/unpublish/:id', asyncHandler(productController.unPublicProductByShop))
 
 // QUERY
-router.get('/byId/:id', asyncHandler(productController.getproductById))
 router.get('/drafts/all', asyncHandler(productController.getAllDraftForShop))
 router.get('/published/all', asyncHandler(productController.getAllPublishForShop))
 

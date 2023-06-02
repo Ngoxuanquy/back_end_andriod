@@ -51,7 +51,7 @@ const findProduct = async ({ product_id, unSelect = ['__v'] }) => {
 
 const getProductById = async (productId) => {
 
-    console.log(productId)
+    console.log({ productId })
 
     return await product.findOne({ _id: convertToObjectIdMongodb(productId) }).lean()
 }

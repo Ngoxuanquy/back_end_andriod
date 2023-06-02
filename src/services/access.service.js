@@ -1,5 +1,5 @@
 const bcrypt = require('bcryptjs')
-const crypto = require('node:crypto')
+const crypto = require('crypto');
 const { createTokenPair, verifyJWT } = require('../auth/authUtils')
 const shopModel = require('../models/shop.model')
 const KeyTokenService = require('./keyToken.service')

@@ -1,4 +1,4 @@
-const crypto = require('node:crypto')
+const crypto = require('crypto');
 const EventEmitter = require('node:events')
 
 const emitter = new EventEmitter()

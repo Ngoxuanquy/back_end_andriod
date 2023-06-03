@@ -59,9 +59,12 @@ class ProductController {
     }
 
     findAllProducts = async (req, res, next) => {
+
+        console.log(req.body)
+
         new SuccessResponse({
             message: 'Get findAllProducts success',
-            metadata: await ProductServiceV2.findAllProducts(req.query),
+            metadata: await ProductServiceV2.findAllProducts(req.params),
         }).send(res)
     }
 

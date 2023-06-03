@@ -36,6 +36,8 @@ class Product {
     }
 
     async createProduct(product_id) {
+        console.log({ this: this })
+
         return await product.create({ ...this, _id: product_id })
     }
 }
@@ -43,7 +45,7 @@ class Product {
 class Clothing extends Product {
     async createProduct() {
 
-        console.log(this)
+        console.log({ this: this })
 
         const newClothing = await clothing.create({
             ...this.product_attributes,
@@ -60,6 +62,9 @@ class Clothing extends Product {
 
 class Electronics extends Product {
     async createProduct() {
+
+        console.log({ this: this })
+
         const newElectronic = await electronic.create({
             ...this.product_attributes,
             product_shop: this.product_shop,

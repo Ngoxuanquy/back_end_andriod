@@ -26,11 +26,13 @@ class ProductFactory {
 
     static async createProduct(type, payload) {
 
-        console.log(payload)
+        // console.log({ payload })
+
 
         const productClass = ProductFactory.productRegistry[type]
 
         console.log({ productClass })
+
         if (!productClass) throw new BadRequestError(`Invalid product type ${type}`)
         return new productClass(payload).createProduct()
     }
@@ -59,13 +61,16 @@ class ProductFactory {
         return await searchProductByUser({ keySearch })
     }
 
-    static async findAllProducts({
-        limit = 50,
-        sort = 'ctime',
-        page = 1,
-        filter = { isPublished: true },
-        select = null,
-    }) {
+    static async findAllProducts(paload) {
+
+        console.log({ paload })
+
+        const limit = 10
+        const sort = 'ctime'
+        const page = paload.page || 1
+        const filter = { isPublished: true }
+        const select = null
+
         return await findAllProducts({
             limit,
             sort,
@@ -131,8 +136,6 @@ class Product {
     }
 
     async createProduct(product_id) {
-
-        console.log(this)
 
         const newProduct = await product.create({ ...this, _id: product_id })
 

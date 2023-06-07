@@ -5,7 +5,6 @@ Content-Type: application/json
 x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
 
 {
-    "name": "abc",
     "email": "1212",
     "password": "1"
 }
@@ -17,7 +16,7 @@ Content-Type: application/json
 x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
 
 {
-    "email": "1212",
+    "email": "1",
     "password": "1"
 }
 
@@ -28,6 +27,13 @@ Content-Type: application/json
 x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
 x-client-id: 645f78f0ff400061f37e430d
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwMjUzNTUsImV4cCI6MTY4NTE5ODE1NX0.T6mj2OTNpaKHNjFJ70n_2mE_bdntDlg7IIGbtJV1x5s
+
+###
+Get {{url_dev}}/users/userId/647e985dfc08161cc7e7f7da
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 647e911bdc92e18f3fcc4c5b
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTExYmRjOTJlMThmM2ZjYzRjNWIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2ODYwMTgyNzUsImV4cCI6MTY4NjE5MTA3NX0.g52r9TkcTelv5LWZRe7LJmSN9VGRm5qtMt9ljjQFul8
 
 
 ###
@@ -204,14 +210,10 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZm
 
 
 ###
-GET  {{url_dev}}/product
+GET  {{url_dev}}/product/1
 Content-Type: application/json
 x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-# x-client-id: 645f78f0ff400061f37e430d
-# authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODQxMTk2MzQsImV4cCI6MTY4NDI5MjQzNH0.coacI39LhwLx27h9O9KRUcy2feZOKwXQiQ_iEo2ilVU
-{
-    page: 2
-}
+
 
 ###
 Post  {{url_dev}}/product/publish/645fa639ff400061f37e4321

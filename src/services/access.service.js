@@ -98,27 +98,37 @@ class AccessService {
 
             if (!foundShop) throw new BadRequestError('Shop not registered')
 
-            const match = await bcrypt.compare(password, foundShop.password)
+            console.log({ foundShop })
+            if (foundShop.status == "active") {
 
-            if (!match) throw new AuthFailureError('Authentication error')
+                const match = await bcrypt.compare(password, foundShop.password)
 
-            const privateKey = crypto.randomBytes(64).toString('hex')
-            const publicKey = crypto.randomBytes(64).toString('hex')
+                if (!match) throw new AuthFailureError('Authentication error')
 
-            const tokens = await createTokenPair({ userId: foundShop._id, email }, publicKey, privateKey)
+                const privateKey = crypto.randomBytes(64).toString('hex')
+                const publicKey = crypto.randomBytes(64).toString('hex')
 
-            await KeyTokenService.createKeyToken({
-                userId: foundShop._id,
-                refreshToken: tokens.refreshToken,
-                publicKey,
-                privateKey,
-            })
+                const tokens = await createTokenPair({ userId: foundShop._id, email }, publicKey, privateKey)
 
-            return {
-                shop: getInfoData(['_id', 'name', 'email'], foundShop),
-                tokens,
-                status: 'ok',
+                await KeyTokenService.createKeyToken({
+                    userId: foundShop._id,
+                    refreshToken: tokens.refreshToken,
+                    publicKey,
+                    privateKey,
+                })
+
+                return {
+                    shop: getInfoData(['_id', 'name', 'email', 'roles'], foundShop),
+                    tokens,
+                    status: 'Đăng Nhập Thành Công',
+                }
             }
+            else {
+                return {
+                    status: 'Tài Khoản Bạn Đã Bị Khóa!!',
+                }
+            }
+
         } catch (error) {
             return {
                 code: 'xxx',
@@ -127,6 +137,7 @@ class AccessService {
             }
         }
     }
+
 
     static signUp = async ({ name, email, password }) => {
         try {

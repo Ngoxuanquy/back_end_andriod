@@ -25,7 +25,7 @@ class TransactionService {
         const newTransaction = new transaction({
             transaction_state: 'active',
             transaction_ShopId: shopId,
-            transaction_products: [product],
+            transaction_products: product,
             transaction_userId: [user]
         });
 

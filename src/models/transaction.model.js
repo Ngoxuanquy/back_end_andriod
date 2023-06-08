@@ -21,7 +21,10 @@ const TransactionSchema = new Schema(
             type: Number,
             default: 0,
         },
-
+        status: {
+            type: String,
+            default: "Đang nhận đơn",
+        },
         transaction_userId: {
             type: Array,
             required: true,

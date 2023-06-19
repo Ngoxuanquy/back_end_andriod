@@ -52,7 +52,7 @@ class ProductFactory {
         return await findAllDraftsForShop({ query, limit, skip })
     }
 
-    static async findAllPublishForShop({ product_shop, limit = 50, skip = 0 }) {
+    static async findAllPublishForShop({ product_shop, limit = 6, skip = 0 }) {
         const query = { product_shop, isPublished: true }
         return await findAllPublishForShop({ query, limit, skip })
     }
@@ -65,7 +65,7 @@ class ProductFactory {
 
         console.log({ paload })
 
-        const limit = 10
+        const limit = 6
         const sort = 'ctime'
         const page = paload.page || 1
         const filter = { isPublished: true }

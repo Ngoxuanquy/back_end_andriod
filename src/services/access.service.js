@@ -98,7 +98,6 @@ class AccessService {
 
             if (!foundShop) throw new BadRequestError('Shop not registered')
 
-            console.log({ foundShop })
             if (foundShop.status == "active") {
 
                 const match = await bcrypt.compare(password, foundShop.password)
@@ -118,9 +117,9 @@ class AccessService {
                 })
 
                 return {
-                    shop: getInfoData(['_id', 'name', 'email', 'roles'], foundShop),
+                    shop: getInfoData(['_id', 'name', 'email', 'roles', 'verify'], foundShop),
                     tokens,
-                    status: 'Đăng Nhập Thành Công',
+                    status: 'Đăng Nhập Thành Công1',
                 }
             }
             else {
@@ -138,15 +137,31 @@ class AccessService {
         }
     }
 
+    static async updateVerify({ id }) {
+
+        const query = { _id: id };
+        const updateSet = {
+            $set: {
+                verify: true
+            }
+        };
+        const updateCart = await shopModel.updateOne(query, updateSet)
+
+        return updateCart
+    }
+
 
     static signUp = async ({ name, email, password }) => {
         try {
+
+            console.log({ email })
             const holderShop = await shopModel.findOne({ email }).lean()
 
             if (holderShop) {
                 throw new BadRequestError('Error: Shop already registered')
             }
             const passwordHash = await bcrypt.hash(password, 10)
+            console.log(passwordHash)
 
             const newShop = await shopModel.create({
                 name,
@@ -154,6 +169,7 @@ class AccessService {
                 password: passwordHash,
                 roles: [RoleShop.SHOP],
             })
+
 
             if (newShop) {
                 const privateKey = crypto.randomBytes(64).toString('hex')
@@ -176,8 +192,10 @@ class AccessService {
                 }
 
                 return {
-                    shop: getInfoData(['_id', 'name', 'email'], newShop),
+                    shop: getInfoData(['_id', 'name', 'email', 'verify'], newShop),
                     tokens,
+                    status: 'success',
+
                 }
             }
 

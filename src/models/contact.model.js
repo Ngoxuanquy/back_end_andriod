@@ -1,45 +1,31 @@
 const { model, Schema } = require('mongoose')
 
-const DOCUMENT_NAME = 'Transactions'
-const COLLECTION_NAME = 'transactions'
+const DOCUMENT_NAME = 'Contact'
+const COLLECTION_NAME = 'Contacts'
 
-const TransactionSchema = new Schema(
+const ContactSchema = new Schema(
     {
-        transaction_state: {
+        contact_state: {
             type: String,
             required: true,
             enum: ['active', 'completed', 'failed', 'pending'],
             default: 'active',
         },
-        notifications: {
+        name: {
             type: String,
+        },
+        address: {
+            type: String,
+        },
 
+        phone: {
+            type: Number,
         },
         userId: {
             type: String,
-
-        },
-        transaction_products: {
-            type: Array,
             required: true,
-            default: [],
-        },
-
-        transaction_count_product: {
-            type: Number,
-            default: 0,
-        },
-        status: {
-            type: String,
-            default: "Đang nhận đơn",
-        },
-        transaction_userId: {
-            type: Array,
-            required: true,
-            default: [],
 
         },
-
     },
     {
         collection: COLLECTION_NAME,
@@ -51,5 +37,5 @@ const TransactionSchema = new Schema(
 )
 
 module.exports = {
-    transaction: model(DOCUMENT_NAME, TransactionSchema),
+    contact: model(DOCUMENT_NAME, ContactSchema),
 }

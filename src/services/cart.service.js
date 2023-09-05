@@ -25,12 +25,16 @@ class CartService {
         // console.log({ userId })
         // console.log({ product })
         try {
-            const { productId, quantity } = product
+            const { _id, quantity } = product
+
+            console.log({ _id })
+            console.log({ quantity })
+
 
             const query = {
                 cart_userId: userId,
                 cart_state: 'active',
-                'cart_products.productId': productId,
+                'cart_products._id': _id,
             },
                 updateSet = {
                     $inc: {
@@ -60,13 +64,17 @@ class CartService {
         // console.log({ product })
         const userCart = await cart.findOne({ cart_userId: userId })
 
-
+        console.log({ product })
         // nếu k có giỏ hàng thì tạo giỏ hàng mới
         if (!userCart) {
             return await CartService.createUserCart({ userId, product, shopId })
         }
 
-        const exists = userCart.cart_products.filter(a => a.productId === product.productId).length > 0;
+        console.log({ userCart: userCart.cart_products })
+
+        const exists = userCart.cart_products.filter(a => a._id === product._id).length > 0;
+
+        console.log({ exists })
 
         if (exists) {
             console.log(`tồn tại trong mảng cart_products`);
@@ -84,31 +92,17 @@ class CartService {
 
     }
 
-    /*
-        shop_order_ids = [
-            {
-                shopId,
-                item_products: [
-                    {
-                        quantity,
-                        price,
-                        shopId,
-                        old_quntity,
-                        productId
-                    }
-                ]
-            }
-        ]
-    */
-
     static async addToCartV2({ userId, shop_order_ids }) {
-        const { productId, quantity, old_quantity } = shop_order_ids[0]?.item_products[0]
+        const { productId, quantity, old_quantity } = shop_order_ids[0]
+
+
+        console.log({ quantity })
 
         const foundProduct = await getProductById(productId)
 
+        if (!foundProduct) throw new NotFoundError('')
         console.log({ foundProduct })
 
-        if (!foundProduct) throw new NotFoundError('')
 
         if (foundProduct.product_shop.toString() !== shop_order_ids[0]?.shopId) {
             throw new NotFoundError('Product do not belong to the shop')
@@ -122,7 +116,7 @@ class CartService {
             userId,
             product: {
                 productId,
-                quantity: quantity - old_quantity,
+                quantity: + old_quantity,
             },
         })
     }
@@ -136,7 +130,7 @@ class CartService {
             updateSet = {
                 $pull: {
                     cart_products: {
-                        productId,
+                        _id: productId,
                     },
                 },
             }
@@ -162,6 +156,22 @@ class CartService {
                 cart_ShopId: shopId,
             })
             .lean()
+    }
+
+    static async updateTransaciton({ userId }) {
+        try {
+            // Sử dụng phương thức findOneAndUpdate để tìm và cập nhật tài liệu dựa trên userId
+            const updatedCart = await cart.deleteOne(
+                { userId: userId }, // Điều kiện để tìm tài liệu
+
+            );
+
+            return updatedCart;
+        } catch (error) {
+            console.error(error);
+            throw new Error('Failed to update transaction.');
+        }
+
     }
 }
 

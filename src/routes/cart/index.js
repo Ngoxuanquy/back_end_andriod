@@ -12,9 +12,10 @@ router.use(authenticationV2)
 
 router.post('/', asyncHandler(CartController.addToCart))
 router.post('/update', asyncHandler(CartController.update))
-router.delete('/', asyncHandler(CartController.delete))
+router.post('/delete', asyncHandler(CartController.delete))
 router.get('/shopId/:shopId', asyncHandler(CartController.listToCartByShop))
-router.get('/', asyncHandler(CartController.listToCart))
+router.post('/getlist', asyncHandler(CartController.listToCart))
+router.post('/updateTransaciton/:userId', asyncHandler(CartController.updateTransaciton))
 
 
 

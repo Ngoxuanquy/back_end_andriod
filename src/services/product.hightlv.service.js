@@ -27,8 +27,6 @@ class ProductFactory {
     static async createProduct(type, payload) {
 
         // console.log({ payload })
-
-
         const productClass = ProductFactory.productRegistry[type]
 
         console.log({ productClass })
@@ -40,7 +38,7 @@ class ProductFactory {
     // end create
 
     static async updateProduct(type, productId, payload) {
-        // const productClass = ProductFactory.productRegistry[type]
+        const productClass = ProductFactory.productRegistry[type]
         if (!productClass) throw new BadRequestError(`Invalid product type ${type}`)
         return new productClass(payload).updateProduct(productId)
     }
@@ -52,7 +50,7 @@ class ProductFactory {
         return await findAllDraftsForShop({ query, limit, skip })
     }
 
-    static async findAllPublishForShop({ product_shop, limit = 6, skip = 0 }) {
+    static async findAllPublishForShop({ product_shop, limit = 50, skip = 0 }) {
         const query = { product_shop, isPublished: true }
         return await findAllPublishForShop({ query, limit, skip })
     }
@@ -65,10 +63,10 @@ class ProductFactory {
 
         console.log({ paload })
 
-        const limit = 6
+        const limit = 10
         const sort = 'ctime'
         const page = paload.page || 1
-        const filter = { isPublished: true }
+        const filter = {}
         const select = null
 
         return await findAllProducts({
@@ -106,6 +104,7 @@ class ProductFactory {
 
     static async getproductAll() {
         return await getProductAll()
+        // return product.findMany().lean()
     }
 
     //delete

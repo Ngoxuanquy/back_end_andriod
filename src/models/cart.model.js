@@ -8,7 +8,7 @@ const cartSchema = new Schema(
         cart_state: {
             type: String,
             required: true,
-            enum: ['active', 'completed', 'failed', 'pending'],
+            enum: ['active', 'completed', 'failed', 'order'],
             default: 'active',
         },
         cart_products: {

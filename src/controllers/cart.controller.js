@@ -9,8 +9,16 @@ class CartController {
         }).send(res)
     }
 
+    static async updateTransaciton(req, res, next) {
+        new SuccessResponse({
+            message: 'Create new Cart success',
+            metadata: await CartService.updateTransaciton(req.params),
+        }).send(res)
+    }
+
     // update + or -
     static async update(req, res, next) {
+        console.log(req.body)
         new SuccessResponse({
             message: 'Create new Cart success',
             metadata: await CartService.addToCartV2(req.body),
@@ -25,10 +33,9 @@ class CartController {
     }
 
     static async listToCart(req, res, next) {
-        console.log(req.query)
         new SuccessResponse({
             message: 'getList Cart success',
-            metadata: await CartService.getListUserCart(req.query),
+            metadata: await CartService.getListUserCart(req.body),
         }).send(res)
     }
 

@@ -46,7 +46,7 @@ var productSchema = new Schema(
         },
         product_variations: { type: Array, default: [] },
         isDraft: { type: Boolean, default: true, index: true, select: false },
-        isPublished: { type: Boolean, default: false, index: true, select: false },
+        isPublished: { type: Boolean, default: false, index: true, select: true },
     },
     {
         collection: COLLECTION_NAME,

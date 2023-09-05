@@ -39,6 +39,8 @@ class UserController {
             metadata: await UserService.updateUserUn(req.params),
         }).send(res)
     }
+
+
 }
 
 module.exports = UserController

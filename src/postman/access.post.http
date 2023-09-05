@@ -2,10 +2,10 @@
 
 POST {{url_dev}}/shop/signup
 Content-Type: application/json 
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
 
 {
-    "email": "1212",
+    "email": "12132a1",
     "password": "1"
 }
 
@@ -13,12 +13,17 @@ x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205
 
 POST {{url_dev}}/shop/login
 Content-Type: application/json
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
 
 {
-    "email": "12122",
+    "email": "121",
     "password": "1"
 }
+
+###
+POST {{url_dev}}/shop/update_verify/6479a1c5f7eea24100662fa8
+Content-Type: application/json
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
 
 
 ###
@@ -42,13 +47,27 @@ x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205
 x-client-id: 647e911bdc92e18f3fcc4c5b
 authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTExYmRjOTJlMThmM2ZjYzRjNWIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2ODYwNDAxOTgsImV4cCI6MTY4NjIxMjk5OH0.-pK735fCN67RTpHJMuV2CzUJ-UMZ_sZg5TlrIcEpG_o
 
+###
+POST {{url_dev}}/product/getAll
+Content-Type: application/json
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
+
+###
+get {{url_dev}}/product/search/a
+Content-Type: application/json
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
+
 
 ###
 POST {{url_dev}}/product
 Content-Type: application/json
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-x-client-id: 6479a1c5f7eea24100662fa8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU3NjE1NjYsImV4cCI6MTY4NTkzNDM2Nn0.tZdoKz7eUYuF9I55TQ8ZofT9UmcLyjwal4aIMPMJNQk
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
 
 {
     "product_name": "a3",
@@ -65,11 +84,11 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3
 }
 
 ###
-patch {{url_dev}}/product/6460eb0240a2e5b188bd5ed1
+patch {{url_dev}}/product/64f19e8149652c6eb8e16acb
 Content-Type: application/json
-x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
-x-client-id: 645f77c72b38802e12f7b580
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzdjNzJiMzg4MDJlMTJmN2I1ODAiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4NDExOTQ2MywiZXhwIjoxNjg0MjkyMjYzfQ.8nvI7a3Z654P0X_KNybZ9vpLLk3J0OT9lKMwwJJnW5E
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
 
 {
     "product_name": "test101",
@@ -94,22 +113,34 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZm
 
 
 ###
-get {{url_dev}}/cart?userId=645f77c72b38802e12f7b580
+post {{url_dev}}/cart/getlist
 Content-Type: application/json
-x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
-x-client-id: 645f78f0ff400061f37e430d
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwNzI0ODcsImV4cCI6MTY4NTI0NTI4N30.ZTVjO1czM7Cu9YMJN15ESeliDS0PeKo3gVuCPmaFZR8
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64f011633263a1cc56078926
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGYwMTE2MzMyNjNhMWNjNTYwNzg5MjYiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY5Mzc0OTQxOCwiZXhwIjoxNjkzOTIyMjE4fQ.RpIOLFN4rJG6gTFrnySeUGVQgRoOIEH6Vh5sb55Gp7o
 
 {
-       "userId": "645f77c72b38802e12f7b580"
+    "userId": "64f14697f15478225387a2c2"
 }
 
 ###
 post {{url_dev}}/cart
 Content-Type: application/json
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-x-client-id: 6479a1c5f7eea24100662fa8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTk2NTIsImV4cCI6MTY4NTg3MjQ1Mn0.cZlvWwze3dVXohX0jMHmON991rzntOa24bBa2p0dAf0
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64f011633263a1cc56078926
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGYwMTE2MzMyNjNhMWNjNTYwNzg5MjYiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY5Mzc0OTQxOCwiZXhwIjoxNjkzOTIyMjE4fQ.RpIOLFN4rJG6gTFrnySeUGVQgRoOIEH6Vh5sb55Gp7o
+
+{
+    "userId": "64f14697f15478225387a2c2"
+}
+
+
+###
+post {{url_dev}}/cart
+Content-Type: application/json
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64f14697f15478225387a2c2
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGYxNDY5N2YxNTQ3ODIyNTM4N2EyYzIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2OTM3MzEyMzUsImV4cCI6MTY5MzkwNDAzNX0._A-bgO-A6BJ0J3aai5RoPFni47Qg8zrSjDL7-9uEO1Y
 
 {
        "userId": "645f77c72b38802e12f7b580",
@@ -132,11 +163,11 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3
 }
 
 ###
-get {{url_dev}}/transaction/shopId/645f77c72b38802e12f7b580
+get {{url_dev}}/transaction/shopId/64799ce7f7eea24100662fa3
 Content-Type: application/json
 x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-x-client-id: 647e909edd0c92406aedd809
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTA5ZWRkMGM5MjQwNmFlZGQ4MDkiLCJlbWFpbCI6IjEyMTIyIiwiaWF0IjoxNjg2MDQzODQyLCJleHAiOjE2ODYyMTY2NDJ9.vAKkHA8C8TfNsHNJtGNiiI6oQmukj2x2X0dOymkqaxs
+x-client-id: 64799ce7f7eea24100662fa3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3ZWVhMjQxMDA2NjJmYTMiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4NzE4NTcyOSwiZXhwIjoxNjg3MzU4NTI5fQ.GUDiPZ5nOFheZkKfMCx4Fhc-ePJZlAz-SnvSfUgo1Rc
 
 
 ###
@@ -169,28 +200,44 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3
     }
 }
 
-
-
 ###
-DELETE {{url_dev}}/cart
+post {{url_dev}}/cart/update
 Content-Type: application/json
-x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
-x-client-id: 645f78f0ff400061f37e430d
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODUwNzI0ODcsImV4cCI6MTY4NTI0NTI4N30.ZTVjO1czM7Cu9YMJN15ESeliDS0PeKo3gVuCPmaFZR8
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 64799ce7f7eea24100662fa3
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3ZWVhMjQxMDA2NjJmYTMiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY4Nzg3NTYzNCwiZXhwIjoxNjg4MDQ4NDM0fQ.tFZdU7I_19csom3R87n1Jss87jLVSIMSA3Jj0bBlVG8
 
 {
-       "userId": "64708f0244fdb1c636653d15",
-        "productId": "646f753039f5d89afe083561"
+       "userId": "6479a1c5f7eea24100662fa8",
+        "shop_order_ids": [
+            {
+                "shopId": "64799ce7f7eea24100662fa3",
+                "productId": "647ad9b7a2683e7833372790",
+        "quantity": 5,
+            "old_quantity": 2
+            }
+        ]
+}
 
+###
+post {{url_dev}}/cart/delete
+Content-Type: application/json
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64f011633263a1cc56078926
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGYwMTE2MzMyNjNhMWNjNTYwNzg5MjYiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY5Mzc0OTQxOCwiZXhwIjoxNjkzOTIyMjE4fQ.RpIOLFN4rJG6gTFrnySeUGVQgRoOIEH6Vh5sb55Gp7o
+
+{
+       "userId": "64f14697f15478225387a2c2",
+        "productId": "64f19e8149652c6eb8e16acb"
 }
 
 
 ###
-get {{url_dev}}/product/byId/6479a9948be9027f2a0e2365
+get {{url_dev}}/product/byId/64f19e8149652c6eb8e16acb
 Content-Type: application/json
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-x-client-id: 6479a1c5f7eea24100662fa8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTY2OTUsImV4cCI6MTY4NTg2OTQ5NX0.KR8zBG3LpzP2c3qq3xVq_CgrYbWY-a9YKA1T57LrmeM
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
 
 # {
 #     "product_name": "test100",
@@ -210,9 +257,9 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3
 ###
 GET  {{url_dev}}/product/published/all
 Content-Type: application/json
-x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
-x-client-id: 645f78f0ff400061f37e430d
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODQxMTk2MzQsImV4cCI6MTY4NDI5MjQzNH0.coacI39LhwLx27h9O9KRUcy2feZOKwXQiQ_iEo2ilVU
+x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODczNjUxMjQsImV4cCI6MTY4NzUzNzkyNH0.NwN6xD1YWGm7cl6K8vOmk6EB0NSijs20KVxrbeRak8g
 
 
 
@@ -223,11 +270,11 @@ x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205
 
 
 ###
-Post  {{url_dev}}/product/publish/645fa639ff400061f37e4321
+Post  {{url_dev}}/product/publish/64f1a327f45a98598afb8644
 Content-Type: application/json
-x-api-key: 025ce9a805c109871ed8664bea8a8e5403f162daf9d7bfd220b4aee6683993350483959b54538db3dc220fa426f334c9e740c66e068cc9ab03318ab4426f606b
-x-client-id: 645f78f0ff400061f37e430d
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZmNDAwMDYxZjM3ZTQzMGQiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODQwNzcxNTksImV4cCI6MTY4NDI0OTk1OX0.7OY47G4Uo8pinYBCGG7M_Ck-zXJSNbs72TeIloeVckQ
+x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-client-id: 64eff56c094acda5b55a41fc
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGVmZjU2YzA5NGFjZGE1YjU1YTQxZmMiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTM1NTYzMjcsImV4cCI6MTY5MzcyOTEyN30.SAy-YBrobm8nt1o0181gsy5b23VgoB_fC8ygCJAPhb0
 
 
 ###

@@ -21,12 +21,17 @@ class TransactionService {
     //     return await transaction.create(query, updateOrInsert, options)
     // }
 
-    static async createUserTransaction({ user, product, shopId }) {
+    static async createUserTransaction({ user, product, shopId, notifications }) {
+
+        console.log({ notifications })
+
         const newTransaction = new transaction({
             transaction_state: 'active',
-            transaction_ShopId: shopId,
+            userId: user.userId,
+            // transaction_ShopId: shopId,
             transaction_products: product,
-            transaction_userId: [user]
+            transaction_userId: [user],
+            notifications: notifications
         });
 
         try {
@@ -37,23 +42,6 @@ class TransactionService {
             throw new Error('Failed to create user transaction.');
         }
     }
-
-    /*
-        shop_order_ids = [
-            {
-                shopId,
-                item_products: [
-                    {
-                        quantity,
-                        price,
-                        shopId,
-                        old_quntity,
-                        productId
-                    }
-                ]
-            }
-        ]
-    */
 
 
     static async deleteUserTransaction({ userId, productId }) {
@@ -75,23 +63,118 @@ class TransactionService {
         return deleteCart
     }
 
-    static async getListUserTransaction({ userId }) {
-        console.log(userId)
-        return await cart
-            .findOne({
-                cart_userId: userId,
-            })
-            .lean()
+    static async updateStatus({ userId, product }) {
+
+        console.log(JSON.stringify(product))
+        console.log({ userId })
+
+        const query = {
+            userId: userId,
+            transaction_products: product
+
+        },
+            updateSet = {
+                $set: {
+                    status: "Đã gửi hàng"
+                },
+            }
+
+        try {
+            const updateResult = await transaction.updateOne(query, updateSet);
+            console.log(`${updateResult.modifiedCount} bản ghi đã được cập nhật.`);
+            return updateResult;
+        } catch (err) {
+            console.error(err);
+            throw err;
+        }
     }
 
-    static async getListUserTransactiontByShop({ shopId }) {
-        console.log(shopId)
-        return await transaction
-            .find({
-                transaction_ShopId: shopId,
-            })
-            .lean()
+    static async getListUserTransaction({ userId }) {
+        try {
+            console.log(userId);
+
+            // Use the 'findMany' method to find multiple documents where 'userId' matches
+            const transactions = await transaction.find({ userId }).lean();
+
+            // Return an array of matching documents
+            return transactions;
+        } catch (error) {
+            // Handle any errors (e.g., database connection error)
+            console.error('Error fetching user transactions:', error);
+            throw error;
+        }
     }
+
+    static async getFull() {
+        try {
+
+            // Use the 'findMany' method to find multiple documents where 'userId' matches
+            const transactions = await transaction.find({
+                status: "Đang nhận đơn"
+            }).lean();
+
+            // Return an array of matching documents
+            return transactions;
+        } catch (error) {
+            // Handle any errors (e.g., database connection error)
+            console.error('Error fetching user transactions:', error);
+            throw error;
+        }
+    }
+
+    static async getFullUseId({ userId }) {
+        try {
+
+            // Use the 'findMany' method to find multiple documents where 'userId' matches
+            const transactions = await transaction.find({
+                status: "Đang nhận đơn",
+                userId: userId
+            }).lean();
+
+            // Return an array of matching documents
+            return transactions;
+        } catch (error) {
+            // Handle any errors (e.g., database connection error)
+            console.error('Error fetching user transactions:', error);
+            throw error;
+        }
+    }
+
+    static async getFullOrder_done() {
+        try {
+
+            // Use the 'findMany' method to find multiple documents where 'userId' matches
+            const transactions = await transaction.find({
+                status: "Đã gửi hàng"
+            }).lean();
+
+            // Return an array of matching documents
+            return transactions;
+        } catch (error) {
+            // Handle any errors (e.g., database connection error)
+            console.error('Error fetching user transactions:', error);
+            throw error;
+        }
+    }
+
+    static async getFullOrder_doneUseId({ userId }) {
+        try {
+
+            // Use the 'findMany' method to find multiple documents where 'userId' matches
+            const transactions = await transaction.find({
+                status: "Đã gửi hàng",
+                userId: userId
+            }).lean();
+
+            // Return an array of matching documents
+            return transactions;
+        } catch (error) {
+            // Handle any errors (e.g., database connection error)
+            console.error('Error fetching user transactions:', error);
+            throw error;
+        }
+    }
+
 }
 
 module.exports = TransactionService

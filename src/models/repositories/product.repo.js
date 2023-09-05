@@ -5,7 +5,7 @@ const { getSelectData, unGetSelectData, convertToObjectIdMongodb } = require('..
 const queryProduct = async ({ query, limit, skip }) => {
     return await product
         .find(query)
-        .populate('product_shop', 'name email -_id')
+        .populate('product_shop', 'name email -_id',)
         .sort({ updateAt: -1 })
         .skip(skip)
         .limit(limit)
@@ -22,20 +22,18 @@ const findAllPublishForShop = async ({ query, limit, skip }) => {
 }
 
 const searchProductByUser = async ({ keySearch }) => {
-    const regexSearch = new RegExp(keySearch)
     const result = await product
         .find(
             {
-                isPublished: true,
-                $text: { $search: regexSearch },
-            },
-            { score: { $meta: 'textScore' } }
+                // isPublished: true,
+                product_name: { $regex: `.*${keySearch}.*`, $options: 'i' },
+            }
         )
-        .sort({ score: { $meta: 'textScore' } })
-        .lean()
+        .lean();
 
-    return result
+    return result;
 }
+
 
 const findAllProducts = async ({ limit, sort, page, filter, select }) => {
     const skip = (page - 1) * limit
@@ -50,8 +48,6 @@ const findProduct = async ({ product_id, unSelect = ['__v'] }) => {
 }
 
 const getProductById = async (productId) => {
-
-    console.log({ productId })
 
     return await product.findOne({ _id: convertToObjectIdMongodb(productId) }).lean()
 }
@@ -71,9 +67,15 @@ const deleteProductById = async (productId) => {
 }
 
 
-const getProductAll = async (productId) => {
-
-    return await product.findMany().lean()
+const getProductAll = async () => {
+    try {
+        const products = await product.find({}).lean();
+        console.log(products);
+        return products;
+    } catch (error) {
+        console.error("Error fetching products:", error);
+        throw error;
+    }
 }
 
 const updateProductById = async ({ productId, bodyUpdate, model, isNew = true }) => {

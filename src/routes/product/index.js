@@ -5,12 +5,12 @@ const asyncHandler = require('../../helpers/asyncHandle')
 
 const router = express.Router()
 
-router.get('/search/:keySearch', asyncHandler(productController.getListSearchProduct))
-router.get('/:page', asyncHandler(productController.findAllProducts))
+router.post('/getAll', asyncHandler(productController.getproductAll))
+router.post('/search/:keySearch', asyncHandler(productController.getListSearchProduct))
+router.post('/page/:page', asyncHandler(productController.findAllProducts))
 router.get('/:product_id', asyncHandler(productController.findProduct))
 
-router.get('/getAll', asyncHandler(productController.getproductAll))
-router.get('/byId/:id', asyncHandler(productController.getproductById))
+router.post('/byId/:id', asyncHandler(productController.getproductById))
 
 
 // authentication

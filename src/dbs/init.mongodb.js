@@ -2,13 +2,13 @@ const mongoose = require('mongoose')
 
 mongoose.set('strictQuery', true)
 
-// const {
-//     db: { host, port, name },
-// } = require('../configs/config.mongodb')
+const {
+    db: { host, port, name },
+} = require('../configs/config.mongodb')
 
 //nd6K6idrswJYN4cd
-// const connectString = `mongodb://${host}:${port}/${name}`
-const connectString = 'mongodb+srv://ngoxuanquy1812:nd6K6idrswJYN4cd@cluster0.xv8sxci.mongodb.net/'
+const connectString = `mongodb://${host}:${port}/${name}`
+// const connectString = 'mongodb+srv://ngoxuanquy1812:nd6K6idrswJYN4cd@cluster0.xv8sxci.mongodb.net/'
 
 
 console.log('connectString::', connectString)

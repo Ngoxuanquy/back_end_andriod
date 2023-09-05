@@ -47,6 +47,13 @@ class AccessController {
 
         // return res.status(201).json(await AccessService.signUp(req.body))
     }
+    updateVerify = async (req, res, next) => {
+        console.log(req.params)
+        new SuccessResponse({
+            message: 'getList Cart success',
+            metadata: await AccessService.updateVerify(req.params),
+        }).send(res)
+    }
 }
 
 module.exports = new AccessController()

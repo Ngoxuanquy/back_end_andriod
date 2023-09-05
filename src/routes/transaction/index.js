@@ -14,7 +14,13 @@ router.post('/', asyncHandler(TransactionController.addToTransaction))
 router.post('/update', asyncHandler(TransactionController.update))
 // router.delete('/', asyncHandler(TransactionController.d))
 router.get('/shopId/:shopId', asyncHandler(TransactionController.listToTransactionByShop))
-router.get('/', asyncHandler(TransactionController.listToTransaction))
+router.post('/getTransaction/:userId', asyncHandler(TransactionController.listToTransaction))
+router.post('/updateStatus', asyncHandler(TransactionController.updateStatus))
+router.post('/getFull', asyncHandler(TransactionController.getFull))
+router.post('/getFullOrder_done', asyncHandler(TransactionController.getFullOrder_done))
+router.post('/getFullUseId/:userId', asyncHandler(TransactionController.getFullUseId))
+router.post('/getFullOrder_doneUseId/:userId', asyncHandler(TransactionController.getFullOrder_doneUseId))
+
 
 
 

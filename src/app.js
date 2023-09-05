@@ -16,7 +16,10 @@ app.use(
     })
 )
 
-app.use(cors())
+app.use(cors({
+    // Add the methods you want to allow
+    methods: ['GET', 'POST', 'PATCH', 'DELETE'],
+}));
 app.use(morgan('dev'))
 app.use(helmet())
 app.use(compression())

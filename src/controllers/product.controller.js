@@ -5,7 +5,7 @@ const ProductServiceV2 = require('../services/product.hightlv.service')
 class ProductController {
     createProduct = async (req, res, next) => {
 
-        console.log(req.body)
+        console.log({ bady: req.body })
         new SuccessResponse({
             message: 'Create new product success',
             metadata: await ProductServiceV2.createProduct(req.body.product_type, {
@@ -47,6 +47,7 @@ class ProductController {
             message: 'Get list publish success',
             metadata: await ProductServiceV2.findAllPublishForShop({
                 product_shop: req.user.userId,
+
             }),
         }).send(res)
     }
@@ -117,9 +118,7 @@ class ProductController {
     }
 
     getproductAll = async (req, res, next) => {
-
-        console.log(req.params.id)
-
+        console.log('anc')
         new SuccessResponse({
             message: 'publicProductByShop success',
             metadata: await ProductServiceV2.getproductAll(),

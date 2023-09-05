@@ -24,11 +24,46 @@ class TransactionController {
         }).send(res)
     }
 
+    static async getFull(req, res, next) {
+        new SuccessResponse({
+            message: 'deleted Cart success',
+            metadata: await TransactionService.getFull(),
+        }).send(res)
+    }
+
+    static async getFullUseId(req, res, next) {
+        new SuccessResponse({
+            message: 'deleted Cart success',
+            metadata: await TransactionService.getFullUseId(req.params),
+        }).send(res)
+    }
+
+    static async getFullOrder_done(req, res, next) {
+        new SuccessResponse({
+            message: 'deleted Cart success',
+            metadata: await TransactionService.getFullOrder_done(),
+        }).send(res)
+    }
+
+    static async getFullOrder_doneUseId(req, res, next) {
+        new SuccessResponse({
+            message: 'deleted Cart success',
+            metadata: await TransactionService.getFullOrder_doneUseId(req.params),
+        }).send(res)
+    }
+
+    static async updateStatus(req, res, next) {
+        new SuccessResponse({
+            message: 'update Cart success',
+            metadata: await TransactionService.updateStatus(req.body),
+        }).send(res)
+    }
+
     static async listToTransaction(req, res, next) {
         console.log(req.query)
         new SuccessResponse({
             message: 'getList Cart success',
-            metadata: await TransactionService.getListUserTransaction(req.query),
+            metadata: await TransactionService.getListUserTransaction(req.params),
         }).send(res)
     }
 

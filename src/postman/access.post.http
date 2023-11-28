@@ -2,10 +2,10 @@
 
 POST {{url_dev}}/shop/signup
 Content-Type: application/json 
-x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
 
 {
-    "email": "12132a1",
+    "email": "14",
     "password": "1"
 }
 
@@ -13,10 +13,10 @@ x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d
 
 POST {{url_dev}}/shop/login
 Content-Type: application/json
-x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
 
 {
-    "email": "121",
+    "email": "14",
     "password": "1"
 }
 
@@ -24,6 +24,45 @@ x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d
 POST {{url_dev}}/shop/update_verify/6479a1c5f7eea24100662fa8
 Content-Type: application/json
 x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
+
+
+###
+POST {{url_dev}}/vnpay/create_payment_url
+Content-Type: application/json
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTg2NTI2NDksImV4cCI6MTY5ODgyNTQ0OX0.FHYPlpTDTTFqIij0Fzso3cd4xe0ERIExRu5mMwtdq9Q
+
+{
+        "amount": "100",
+        "language": "vn",
+        "bankCode": ""
+}
+0
+###
+POST {{url_dev}}/transaction/deleteProduct
+Content-Type: application/json
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
+x-client-id: 6479a1c5f7eea24100662fa8
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2OTg2NTI2NDksImV4cCI6MTY5ODgyNTQ0OX0.FHYPlpTDTTFqIij0Fzso3cd4xe0ERIExRu5mMwtdq9Q
+
+{
+    "userId" : "64799ce7f7eea24100662fa3",
+     "newCartData": [{"_id":"653880051e94550bfcd6c49c",
+     "product_name":"sản phẩm 1",
+     "product_thumb":"https://res.cloudinary.com/dvqmndx5j/image/upload/v1697453955/banhang/omnjogruvon1h9eecen2.jpg","product_description":"đẹp","product_price":100,"product_quantity":100,
+     "product_type":"Electronics",
+     "product_shop":"647e985dfc08161cc7e7f7da",
+     "product_attributes":
+     {"manufacturer":"quy","color":"đỏ","size":"l"},
+     "product_ratingsAverage":4.5,
+     "product_variations":[],
+     "isPublished":true,
+     "createdAt":"2023-10-25T02:40:05.355Z",
+     "updatedAt":"2023-10-25T02:40:05.355Z",
+     "product_slug":"san-pham-1","__v":0,
+     "quantity":2}]
+}
 
 
 ###
@@ -115,12 +154,12 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDVmNzhmMGZm
 ###
 post {{url_dev}}/cart/getlist
 Content-Type: application/json
-x-api-key: f84252040ba6025b2f4331140dd4e7f05387b18c92413b3c3633ecafaa84abccff87d11c14f6c125fda106033bd0458f2dc2b62532e07aaad3538050d0b983c3
-x-client-id: 64f011633263a1cc56078926
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NGYwMTE2MzMyNjNhMWNjNTYwNzg5MjYiLCJlbWFpbCI6IjEyMSIsImlhdCI6MTY5Mzc0OTQxOCwiZXhwIjoxNjkzOTIyMjE4fQ.RpIOLFN4rJG6gTFrnySeUGVQgRoOIEH6Vh5sb55Gp7o
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
+x-client-id: 65308eb09c28b53767e92f00
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NTMwOGViMDljMjhiNTM3NjdlOTJmMDAiLCJlbWFpbCI6IjE0IiwiaWF0IjoxNzAwMTg3MTkxLCJleHAiOjE3MDAzNTk5OTF9.22C6zS_UdJP2tSJyGrrGua4diZEl_-yzoq9FSk60XpQ
 
 {
-    "userId": "64f14697f15478225387a2c2"
+    "userId": "65308eb09c28b53767e92f00"
 }
 
 ###
@@ -173,16 +212,15 @@ authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5OWNlN2Y3
 ###
 post {{url_dev}}/transaction
 Content-Type: application/json
-x-api-key: 30929e75539a12a71ea783896b3b99f6d93e78ab41a820ae7e5a3477c520b1fbc6205681dd9f3c2f5950177c233ce246d1df8579f2ba091a303f19cb66c99282
-x-client-id: 6479a1c5f7eea24100662fa8
-authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDc5YTFjNWY3ZWVhMjQxMDA2NjJmYTgiLCJlbWFpbCI6IjEyMTIiLCJpYXQiOjE2ODU2OTk2NTIsImV4cCI6MTY4NTg3MjQ1Mn0.cZlvWwze3dVXohX0jMHmON991rzntOa24bBa2p0dAf0
+x-api-key: 734b19461f4e14f0df06bf3886bbe6dac5b6606a260c426289c9caa6726c2420f00d4fd02fce17bb8a771422d3935bbf50bbe6e42784e35083563cc77aa5cc28
+x-client-id: 647e911bdc92e18f3fcc4c5b
+authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2NDdlOTExYmRjOTJlMThmM2ZjYzRjNWIiLCJlbWFpbCI6IjEiLCJpYXQiOjE2OTgxNjAyMDYsImV4cCI6MTY5ODMzMzAwNn0.iojUA8imd3FD5m3qPqnB9AakSd3KWlBN6cm4NzDofpk
 
 {
        "user": {
         "userId": "645f77c72b38802e12f7b580",
         "name": "test"
        },
-       "shopId": "645f78f0ff400061f37e430d",
         "product" : {
         "productId": "646f535f5caeac0dd7587b17",
         "product_name": "test101",

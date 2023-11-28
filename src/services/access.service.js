@@ -155,11 +155,11 @@ class AccessService {
         try {
 
             console.log({ email })
-            const holderShop = await shopModel.findOne({ email }).lean()
+            // const holderShop = await shopModel.findOne({ email }).lean()
 
-            if (holderShop) {
-                throw new BadRequestError('Error: Shop already registered')
-            }
+            // if (holderShop) {
+            //     throw new BadRequestError('Error: Shop already registered')
+            // }
             const passwordHash = await bcrypt.hash(password, 10)
             console.log(passwordHash)
 

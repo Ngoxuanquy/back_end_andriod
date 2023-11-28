@@ -7,7 +7,7 @@ const dev = {
         port: process.env.DEV_DB_PORT || 27017,
         name: process.env.DEV_DB_NAME || 'dbDev',
     },
-}
+};
 
 const pro = {
     app: {
@@ -18,12 +18,12 @@ const pro = {
         port: process.env.PRO_DB_PORT || 27017,
         name: process.env.PRO_DB_NAME || 'dbProduct',
     },
-}
+};
 
-const config = { dev, pro }
+const config = { dev, pro };
 
 // console.log(config['dev'])
 
-const env = process.env.NODE_ENV || 'dev'
+const env = process.env.NODE_ENV || 'dev';
 
-module.exports = config[env]
+module.exports = config[env];

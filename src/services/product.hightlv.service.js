@@ -74,7 +74,7 @@ class ProductFactory {
             sort,
             page,
             filter,
-            select: ['product_name', 'product_price', 'product_thumb'] || select,
+            select: ['product_name', 'product_price', 'product_thumb', 'product_type'] || select,
         })
     }
 

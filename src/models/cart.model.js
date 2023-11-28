@@ -1,7 +1,7 @@
-const { model, Schema } = require('mongoose')
+const { model, Schema } = require('mongoose');
 
-const DOCUMENT_NAME = 'Cart'
-const COLLECTION_NAME = 'carts'
+const DOCUMENT_NAME = 'Cart';
+const COLLECTION_NAME = 'carts';
 
 const cartSchema = new Schema(
     {
@@ -30,6 +30,9 @@ const cartSchema = new Schema(
             type: String,
             required: true,
         },
+        datetime: {
+            type: String,
+        },
     },
     {
         collection: COLLECTION_NAME,
@@ -37,9 +40,9 @@ const cartSchema = new Schema(
             createdAt: 'createdOn',
             updatedAt: 'modifieOn',
         },
-    }
-)
+    },
+);
 
 module.exports = {
     cart: model(DOCUMENT_NAME, cartSchema),
-}
+};
